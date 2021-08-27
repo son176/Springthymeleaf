@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org" th:fragment="dynamic(main)">
+
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/bannercss.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body class="container" ng-app="shopping_cart_app"
+	ng-controller="shopping_cart_ctrl">
+	<header class="row">
+		<img class="banner" th:src="@{/images/q.jpg}"
+			style="object-fit: cover;">
+	</header>
+	<nav class="row">
+		<div th:replace="/layout/_menu.html"></div>
+	</nav>
+	<div class="row">
+		<article class="col-sm-9">
+			<div th:replace="${main}"></div>
+		</article>
+		<aside class="col-sm-3">
+			<div th:replace="/layout/_cart-info.html"></div>
+			<div th:replace="/layout/_category.html"></div>
+		</aside>
+	</div>
+	<div class="row text-center"
+		style="background-color: rgba(0, 0, 0, 0.2);">© 2021 : PFT</div>
+	<script src="/js/shopping_cart_app.js"></script>
+</body>
+</html>
